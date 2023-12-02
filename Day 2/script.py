@@ -8,6 +8,7 @@ blue_cubes = 14
 split_pattern = re.compile(r'[:;]')
 cube_pattern = re.compile(r'[ ]')
 total_score = 0
+total_power = 0
 
 with open("./input_file.txt") as input_file:
     for line in input_file:
@@ -36,6 +37,23 @@ for key, value in game_dict.items():
                 next
     if total_condition == True:
         total_score = key + total_score
-        
-print(total_score)
 
+for key, value in game_dict.items():
+    min_red = 0
+    min_blue = 0
+    min_green = 0
+    for draw in value:
+        if draw[1] == 'red':
+            if int(draw[0]) > min_red or min_red == 0:
+                min_red = int(draw[0])
+        if draw[1] == 'blue':
+            if int(draw[0]) > min_blue or min_blue == 0:
+                min_blue = int(draw[0])
+        if draw[1] == 'green':
+            if int(draw[0]) > min_green or min_green == 0:
+                min_green = int(draw[0])
+    cubed_value = min_red * min_blue * min_green
+    total_power = total_power + cubed_value
+
+print(total_score)
+print(total_power)
