@@ -1,5 +1,5 @@
 from functools import cmp_to_key
-
+#borrowed
 # open and read the input file
 file_path = "./day 7/input_file.txt"
 input_file = open(file_path, "r")
