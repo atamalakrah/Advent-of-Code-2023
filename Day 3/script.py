@@ -4,7 +4,7 @@ input_dict = {}
 total_sum = 0
 numbers_nearby = []
 
-with open("./test_input_file.txt") as input_file:
+with open("./Day 3/test_input_file.txt") as input_file:
     for counter, line in enumerate(input_file):
         input_arr = re.sub(r'\n', '', line).lstrip()
         input_dict[counter] = input_arr
